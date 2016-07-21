@@ -1,15 +1,14 @@
 	{{ $baseurl := .Site.BaseURL }}
-	{{ template "theme/chrome/header.html" . }}
-	    <!-- CONTENT -->
+	{{ partial "header.html" . }}
 	  <div class="post">
 	    <header class="post-header">
 	        <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-	        <div class="post-time">{{ .Date.Format "January 2 2006" }}</div>
+	        <div class="post-time">{{ .Date.Format "02 January, 2006" }}</div>
 	    </header>
 	    <div class="post-after">
 	        <div class="tags">
 	            {{ range .Params.tags }}
-	                <a href="{{ $baseurl }}/tags/{{ . | urlize }}">{{ . }}</a>              
+	                <a href="{{ $baseurl }}/tags/{{ . | urlize }}">{{ . }}</a>
 	            {{ end }}
 	        </div>
 	    </div>
@@ -17,10 +16,9 @@
 	    <div class="post content">
 	        {{ .Content }}
 	    </div>
-	    <!-- END CONTENT -->
-	{{ template "theme/chrome/about.html" . }}
 		<nav id="pagination">
 			{{if .Prev}}<a class="prev" href="{{.Prev.Permalink}}">Prev</a>{{end}}
 			{{if .Next}}<a class="next" href="{{.Next.Permalink}}">Next</a>{{end}}
 		</nav>
-	{{ template "theme/chrome/footer.html" . }}
+    </div>
+	{{ partial "footer.html" . }}

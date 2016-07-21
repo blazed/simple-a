@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+  <head>
+    <meta charset="utf-8">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+
+    <link href="{{ .Site.BaseURL }}css/milk.min.css" rel="stylesheet">
+    <link href="{{ .Site.BaseURL }}css/milk-responsive.min.css" rel="stylesheet">
+    <link href="{{ .Site.BaseURL }}css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ .Site.BaseURL }}css/fonts.css" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="shortcut icon" href="{{ .Site.Params.favicon }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link href="{{ .Site.BaseURL }}rss.xml" type="application/atom+xml" rel="alternate" title="{{ .Site.Title }}">
+
+    <title>{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div id="navbar-inner">
+        <div id="logo">
+          <a href="{{ .Site.BaseURL }}">DARKSTAR</a>
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+  <div class="content">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="posts">
